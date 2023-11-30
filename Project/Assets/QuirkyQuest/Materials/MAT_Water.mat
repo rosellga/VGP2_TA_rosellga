@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: MAT_Water
   m_Shader: {fileID: 4800000, guid: ee7e4c9a5f6364b688a332c67fc32cca, type: 3}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _ALPHATEST_ON _RECEIVE_SHADOWS_OFF _SPECULAR_SETUP
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _ALPHATEST_ON _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -114,7 +114,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 1
-    - _WorkflowMode: 0
+    - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
     - FoamColor: {r: 1, g: 1, b: 1, a: 0}
