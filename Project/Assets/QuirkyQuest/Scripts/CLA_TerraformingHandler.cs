@@ -74,12 +74,12 @@ public class CLA_TerraformingHandler : MonoBehaviour
                 }
 
                 coordinates.x = (int)(x / texture.size_);
-                pixel.x = ((int)biomePalette_.Size().x) * coordinates.x;
-                pixel.x = (int)math.remap(0.0f, biomePalette_.Size().x, biomePalette_.Size().x * longitude.x, biomePalette_.Size().x * longitude.y, pixel.x);
+                pixel.x = (biomePalette_.width) * coordinates.x;
+                pixel.x = (int)math.remap(0.0f, biomePalette_.width, biomePalette_.width * longitude.x, biomePalette_.width * longitude.y, pixel.x);
 
                 coordinates.y = (int)(y / texture.size_);
-                pixel.y = (int)(biomePalette_.Size().y * heightmap.texture_.GetPixel(x, y).r);
-                pixel.y = (int)math.remap(0.0f, biomePalette_.Size().y, biomePalette_.Size().y * 0.0f, biomePalette_.Size().y * 1.0f, pixel.y);
+                pixel.y = (int)(biomePalette_.height * heightmap.texture_.GetPixel(x, y).r);
+                pixel.y = (int)math.remap(0.0f, biomePalette_.height, biomePalette_.height * 0.0f, biomePalette_.height * 1.0f, pixel.y);
 
                 texture.texture_.SetPixel(x, y, biomePalette_.GetPixel(pixel.x, pixel.y));
             }
@@ -144,8 +144,8 @@ public class CLA_TerraformingHandler : MonoBehaviour
 
     private void UpdateHeightmap(CLA_Texture2D heightmap, TerrainData data)
     {
-        Undo.RegisterCompleteObjectUndo(data, "Heightmap From Texture");
-        Vector2Int heightmap_size = new Vector2Int((int)heightmap.texture_.Size().x, (int)heightmap.texture_.Size().y);
+        // Undo.RegisterCompleteObjectUndo(data, "Heightmap From Texture");
+        Vector2Int heightmap_size = new Vector2Int(heightmap.texture_.width, heightmap.texture_.height);
         int heightmap_resolution = data.baseMapResolution;
         float[,] heightmap_data = data.GetHeights(0, 0, heightmap_size.x, heightmap_size.y);
         Color[] heightmap_colors = heightmap.texture_.GetPixels();
