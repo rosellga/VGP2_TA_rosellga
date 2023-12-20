@@ -33,6 +33,13 @@ public class CLA_TerraformingHandler : MonoBehaviour
     public Terrain water_;
     public TerrainData waterData_;
 
+    public void Start()
+    {
+        GenerateNoiseMap(16, new Vector2Int(heightmapTexture_.offset_.x, heightmapTexture_.offset_.y), heightmapTexture_);
+        ColorizeTexture(colorTexture_, heightmapTexture_);
+        UpdateHeightmap(heightmapTexture_, groundData_);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(generateMap_))
